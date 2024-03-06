@@ -15,6 +15,26 @@
   -webkit-text-size-adjust: 100%;
 }
 
+#project-button {
+  font-family: inherit;
+  font-size: 2em;
+  font-weight: 500;
+  line-height: 1.5;
+  border-radius: 100px;
+  border: 1px solid transparent;
+  text-align: center;
+  padding: 15px 30px;
+  background-color: rgba(68, 201, 190, 0.6);
+  color: #ffffff;
+  transition: background-color 0.25s;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  right: 2.8%;
+  top: 15.4%;
+  /* height: 80px;
+  width: 80px; */
+}
+
 .container {
   margin: 0;
   padding-top: 10vh;
@@ -46,8 +66,7 @@ h1 {
   text-align: center;
 }
 
-input,
-button {
+#project-input {
   width: 100%;
   height: 50px;
   border-radius: 100px;
@@ -60,27 +79,27 @@ button {
   background-color: #ffffff;
   transition: border-color 0.25s;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  outline: none;
 }
 
-button {
+#project-button {
   cursor: pointer;
 }
 
-button:hover {
+#project-button:hover {
   border-color: #396cd8;
 }
-button:active {
+#project-button:active {
   border-color: #396cd8;
   background-color: #e8e8e8;
 }
 
-input,
-button {
-  outline: none;
-}
-
 #project-input {
   margin-right: 5px;
+}
+
+#project-dir-input {
+  display: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -93,12 +112,12 @@ button {
     color: #24c8db;
   }
 
-  input,
-  button {
+  #project-input {
     color: #ffffff;
-    background-color: #0f0f0f98;
+    background-color: rgba(15, 15, 15, 1);
+    /* background-color: rgba(15, 15, 15, 0.596); */
   }
-  button:active {
+  #project-dir-input:active {
     background-color: #0f0f0f69;
   }
 }
