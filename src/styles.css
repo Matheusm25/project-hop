@@ -32,9 +32,9 @@
 
 #sugestion {
   position: fixed;
-  top: 26%;
   font-size: 1.7em;
-  left: 7%;
+  top: 2.13em;
+  left: 1.5em;
   color: rgba(128, 128, 128, 0.43);
 }
 
