@@ -23,15 +23,30 @@ window.addEventListener("DOMContentLoaded", async () => {
     .addEventListener('keydown', async (e) => {
       if (e.key === 'Enter') {
         const project = document.querySelector('#project-input').value;
-        if (sources[project]) {
-          const command = new shell.Command('code', [sources[project]]);
+        const sugestedProject = document.querySelector('#sugestion').innerHTML;
+
+        if (sources[project] || sources[sugestedProject]) {
+          const command = new shell.Command('code', [sources[project] || sources[sugestedProject]]);
           await command.spawn();
           await sleep(1000);
           process.exit(0);
         } else {
           document.querySelector('#project-input').value = '';
         }
-      } 
+      } else {
+        let changed = false;
+        for (const source of Object.keys(sources)) {
+          if (source.startsWith(e.target.value + e.key)) {
+            document.querySelector('#sugestion').innerHTML = source;
+            changed = true;
+            break;
+          }
+        }
+
+        if (!changed) {
+          document.querySelector('#sugestion').innerHTML = '';
+        }
+      }
     });
 
     document
@@ -54,6 +69,5 @@ async function sleep(ms) {
 }
 
 events.listen('tauri://blur', async () => {
-  console.log(sources);
-  // process.exit(0);
+  process.exit(0);
 })
